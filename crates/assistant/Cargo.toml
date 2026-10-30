@@ -1,0 +1,17 @@
+[package]
+name = "assistant"
+description = "The biv language model on a worker thread: queries into task operations, task lists into plans"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+todo-core.workspace = true
+anyhow.workspace = true
+async-channel.workspace = true
+biv.workspace = true
+biv-cli.workspace = true
+chrono.workspace = true
+rayon.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+biv = { workspace = true, features = ["metal"] }

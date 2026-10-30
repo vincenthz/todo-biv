@@ -1,0 +1,42 @@
+[package]
+name = "todo-biv"
+description = "A to-do list you talk to: plain-language and spoken requests become prioritized tasks"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "todo-biv"
+path = "src/main.rs"
+
+[dependencies]
+todo-core.workspace = true
+assistant.workspace = true
+speech.workspace = true
+anyhow.workspace = true
+async-channel.workspace = true
+chrono.workspace = true
+gpui.workspace = true
+gpui-component.workspace = true
+gpui-kit-assets.workspace = true
+gpui-platform.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+gpui = { workspace = true, features = ["test-support"] }
+gpui-platform = { workspace = true, features = ["test-support"] }
+
+[target.'cfg(target_os = "macos")'.dev-dependencies]
+gpui-apple = { package = "gpui-pre-apple", version = "=0.3.9", features = ["font-kit"] }
+
+[package.metadata.bundle]
+# cargo-bundle resolves these paths against the current directory: bundle from
+# crates/app (scripts/bundle.sh does, and signs the app)
+name = "Todo Biv"
+identifier = "io.typed.todo-biv"
+icon = ["assets/icon/32x32.png", "assets/icon/128x128.png", "assets/icon/128x128@2x.png", "assets/icon/512x512.png", "assets/icon/512x512@2x.png"]
+category = "public.app-category.productivity"
+short_description = "A to-do list you talk to"
+long_description = "Plain-language and spoken requests become classified, prioritized tasks; a local language model (biv) keeps a plan of what to do next."
+osx_minimum_system_version = "13.0"
+osx_info_plist_exts = ["assets/Info.plist.ext"]

@@ -1,0 +1,8 @@
+  <!-- Appended verbatim by cargo-bundle inside the generated Info.plist's
+       <dict>, so this file holds bare key/value pairs. cargo-bundle already
+       writes NSHighResolutionCapable, and LSApplicationCategoryType from the
+       bundle's category: they are not repeated here. -->
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Todo Biv listens to the requests you speak when microphone mode is on. Audio is transcribed on this Mac and never leaves it.</string>
+  <key>NSSupportsAutomaticGraphicsSwitching</key>
+  <true/>
