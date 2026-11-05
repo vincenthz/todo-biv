@@ -18,21 +18,15 @@ biv-cli = { git = "https://github.com/vincenthz/biv" }
 
 anyhow = "1"
 async-channel = "2"
-candle-core = "0.9"
-candle-nn = "0.9"
 chrono = { version = "0.4", features = ["serde"] }
-cpal = "0.18"
 dirs = "6"
 gpui = { package = "gpui-pre", version = "=0.3.9" }
 gpui-component = "0.8"
 gpui-kit-assets = "0.8"
 gpui-platform = { package = "gpui-pre-platform", version = "=0.3.9", features = ["font-kit", "runtime_shaders"] }
-hf-hub = { version = "0.4", default-features = false, features = ["ureq"] }
 rayon = "1.12"
-rustfft = "6"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-tokenizers = { version = "0.22", default-features = false, features = ["fancy-regex"] }
 
 [profile.dev.package."*"]
 # unoptimized biv, candle and FFT code make inference unusably slow in debug builds

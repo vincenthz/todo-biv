@@ -292,9 +292,9 @@ fn is_hallucination(text: &str) -> bool {
     words.is_empty() || SILENCE_HALLUCINATIONS.contains(&words.as_str())
 }
 
-/// The Metal GPU when built with it, else the CPU.
+/// The Metal GPU on macOS when one is available, else the CPU.
 pub fn default_device() -> Device {
-    #[cfg(feature = "metal")]
+    #[cfg(target_os = "macos")]
     if let Ok(device) = Device::new_metal(0) {
         return device;
     }
