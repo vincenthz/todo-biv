@@ -10,7 +10,7 @@ edition = "2024"
 [workspace.dependencies]
 todo-core = { path = "crates/core" }
 assistant = { path = "crates/assistant" }
-speech = { path = "crates/speech" }
+speech2text = { git = "https://github.com/vincenthz/speech2text" }
 
 # the inference engine and its GGUF / Hugging Face cache helpers
 biv = { git = "https://github.com/vincenthz/biv" }

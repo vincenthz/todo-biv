@@ -8,7 +8,7 @@ use assistant::{Config, ModelStatus};
 use chrono::{Duration as Days, Local};
 use gpui::{AnyWindowHandle, AppContext as _, Entity, HeadlessAppContext, Window, px, size};
 use gpui_component::{Root, Theme, ThemeMode};
-use speech::whisper::hub;
+use speech2text::whisper::hub;
 use todo_core::{NewTask, Op, Plan, PlanItem, Priority, PrioritySuggestion, Status, Store, TaskId, TaskPatch};
 
 use crate::{

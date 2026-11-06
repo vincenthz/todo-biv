@@ -13,7 +13,7 @@ use gpui_component::{
     v_flex,
 };
 use gpui_kit_assets::IconName;
-use speech::whisper::hub;
+use speech2text::whisper::hub;
 
 use crate::{
     palette,
@@ -243,7 +243,7 @@ impl SettingsPage {
 }
 
 fn list_devices() -> Result<Vec<String>, String> {
-    speech::audio::capture::input_devices().map_err(|e| format!("Could not list the microphones: {e:#}"))
+    speech2text::audio::capture::input_devices().map_err(|e| format!("Could not list the microphones: {e:#}"))
 }
 
 /// A switch with a label and a line of explanation

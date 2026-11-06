@@ -11,7 +11,7 @@ path = "src/main.rs"
 [dependencies]
 todo-core.workspace = true
 assistant.workspace = true
-speech.workspace = true
+speech2text.workspace = true
 anyhow.workspace = true
 async-channel.workspace = true
 chrono.workspace = true

@@ -3371,12 +3371,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hound"
-version = "3.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62adaabb884c94955b19907d60019f4e145d091c75345379e70d1ee696f7854f"
-
-[[package]]
 name = "html5ever"
 version = "0.27.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6834,15 +6828,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "speech"
+name = "speech2text"
 version = "0.1.0"
+source = "git+https://github.com/vincenthz/speech2text#4c698f4d5e5157e18a6c91a7986bb7abf4ae1f7f"
 dependencies = [
  "anyhow",
  "candle-core",
  "candle-nn",
  "cpal",
  "hf-hub",
- "hound",
  "rustfft",
  "serde",
  "serde_json",
@@ -7325,7 +7319,7 @@ dependencies = [
  "gpui-pre-platform",
  "serde",
  "serde_json",
- "speech",
+ "speech2text",
  "todo-core",
 ]
 

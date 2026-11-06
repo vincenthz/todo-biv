@@ -12,7 +12,6 @@ cargo run --release                                        # the app (bin todo-b
 cargo run --release -p assistant --example try             # requests and a review through the model, in the terminal
 cargo run --release -p assistant --example try -- -r "buy milk and call the bank tomorrow"
 cargo run --release -p assistant --example try -- --compare  # greedy answers from the saved system prompt vs without it
-cargo run --release -p speech --example transcribe -- --record 5   # Whisper on 5 s from the microphone
 scripts/bundle.sh                                          # target/release/bundle/osx/Todo Biv.app, signed ad hoc
 ```
 
@@ -102,14 +101,14 @@ crates/
               reader, the deterministic plan. No UI, no model.
   assistant   The biv model on a worker thread: requests in, operations and
               plans out, with partial text while it generates.
-  speech      Microphone capture (cpal) and English Whisper on candle (Metal
-              on macOS), with checkpoint downloads from Hugging Face.
   app         todo-biv: the GPUI Component 0.8 desktop app, and its macOS
               bundle (assets/, [package.metadata.bundle]).
 ```
 
 Dependencies point one way: `app` → `assistant` → `core`, and `app` →
-`speech`. The core never sees the model or audio; it reads the model's text
+[speech2text](https://github.com/vincenthz/speech2text) (microphone capture
+with cpal and English Whisper on candle, Metal on macOS, with checkpoint
+downloads from Hugging Face). The core never sees the model or audio; it reads the model's text
 and the text Whisper heard.
 
 ## Requirements
@@ -221,5 +220,4 @@ app without touching the real list.
 ```sh
 cargo test --workspace                                      # prompts, reply parsing, rules, store, ranking, app state
 cargo test -p todo-biv screenshots -- --ignored             # renders the app offscreen to target/screenshots/*.png
-cargo test --release -p speech -- --include-ignored         # Whisper on tests/data/buy_milk.wav and on silence
 ```

@@ -37,7 +37,7 @@ impl Default for Settings {
             load_at_startup: true,
             review_minutes: 10,
             microphone: false,
-            whisper: speech::whisper::hub::DEFAULT_CHECKPOINT.into(),
+            whisper: speech2text::whisper::hub::DEFAULT_CHECKPOINT.into(),
             input_device: String::new(),
             auto_submit: true,
         }
@@ -117,8 +117,8 @@ impl Settings {
         assistant::Config { model, cpu: self.cpu, thinking: self.thinking, ..Default::default() }
     }
 
-    pub fn whisper_checkpoint(&self) -> &'static speech::whisper::hub::Checkpoint {
-        speech::whisper::hub::checkpoint_or_default(&self.whisper)
+    pub fn whisper_checkpoint(&self) -> &'static speech2text::whisper::hub::Checkpoint {
+        speech2text::whisper::hub::checkpoint_or_default(&self.whisper)
     }
 
     pub fn device(&self) -> Option<&str> {

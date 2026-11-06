@@ -17,7 +17,7 @@ use gpui_component::{
     v_flex,
 };
 use gpui_kit_assets::IconName;
-use speech::audio::capture::Recorder;
+use speech2text::audio::capture::Recorder;
 use todo_core::{heuristics, prompt::Interpretation};
 
 use crate::{

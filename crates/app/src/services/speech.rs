@@ -16,7 +16,7 @@ use std::time::Instant;
 
 use anyhow::{Result, bail};
 use gpui::{Context, EventEmitter, Task};
-use speech::{
+use speech2text::{
     audio::capture::Recording,
     whisper::{
         Transcriber, Transcript, default_device,
